@@ -1,0 +1,73 @@
+# luogu B2105 矩阵乘法
+
+
+
+# 矩阵乘法
+
+## 题目描述
+
+计算两个矩阵的乘法。$n \times m$ 阶的矩阵 $A$ 乘以 $m \times k$ 阶的矩阵 $B$ 得到的矩阵 $C$ 是 $n \times k$ 阶的，且 $C[i][j]=A[i][0] \times B[0][j]+A[i][1] \times B[1][j]+$ …… $+A[i][m-1] \times B[m-1][j](C[i][j]$ 表示 $C$ 矩阵中第 $i$ 行第 $j$ 列元素）。
+
+## 输入格式
+
+第一行为 $n,m,k$，表示 $A$ 矩阵是 $n$ 行 $m$ 列，$B$ 矩阵是 $m$ 行 $k$ 列，$n,m,k$ 均小于 $100$。
+
+然后先后输入 $A$ 和 $B$ 两个矩阵，$A$ 矩阵 $n$ 行 $m$ 列，$B$ 矩阵 $m$ 行 $k$ 列，矩阵中每个元素的绝对值不会大于 $1000$。
+
+## 输出格式
+
+输出矩阵 $C$，一共 $n$ 行，每行 $k$ 个整数，整数之间以一个空格分开。
+
+## 样例 #1
+
+### 样例输入 #1
+
+```
+3 2 3
+1 1
+1 1
+1 1
+1 1 1
+1 1 1
+```
+
+### 样例输出 #1
+
+```
+2 2 2
+2 2 2
+2 2 2
+```
+
+
+
+
+
+```python
+n,m,k=input().split()
+m=int(m)
+n=int(n)
+k=int(k)
+arr1=[]
+arr2=[]
+
+for i in range(n):
+    arr1.append(list(map(int,input().split())))
+
+for i in range(m):
+    arr2.append(list(map(int,input().split())))
+
+for i in range(n):
+    for j in range(k):
+        add=0
+        for l in range(m):
+            add+=arr1[i][l]*arr2[l][j]
+        print(add,end=" ")
+    print()
+
+```
+
+
+
+
+
